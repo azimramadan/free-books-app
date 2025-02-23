@@ -1,7 +1,6 @@
 import 'package:bookly_app/core/assets.dart';
-import 'package:bookly_app/features/auth/presentation/view/widgets/get_started_button.dart';
+import 'package:bookly_app/features/auth/presentation/view/widgets/custom_elevated_button%20.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/register_button.dart';
-import 'package:bookly_app/features/auth/presentation/view/widgets/welcome_view_body.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeContent extends StatelessWidget {
@@ -22,7 +21,7 @@ class WelcomeContent extends StatelessWidget {
           ),
         ),
         Spacer(flex: 2),
-        GetStartedButton(),
+        CustomElevatedButton(),
         Spacer(flex: 1),
 
         RegisterButton(),

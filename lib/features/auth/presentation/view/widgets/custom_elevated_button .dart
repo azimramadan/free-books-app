@@ -1,8 +1,9 @@
 import 'package:bookly_app/core/constants.dart';
+import 'package:bookly_app/features/auth/presentation/view/sign_in_view.dart';
 import 'package:flutter/material.dart';
 
-class GetStartedButton extends StatelessWidget {
-  const GetStartedButton({super.key});
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,18 @@ class GetStartedButton extends StatelessWidget {
           minimumSize: Size(double.infinity, 56),
           backgroundColor: kPrimaryColor,
         ),
-        onPressed: () {},
+        onPressed: () {
+          ////////////////////////////////////////////////////////////////////////////////////////////////////
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return SignInView();
+              },
+            ),
+          );
+          ////////////////////////////////////////////////////////////////////////////////////////////////////
+        },
         child: Text(
           'Get Started',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),

@@ -1,5 +1,3 @@
-import 'package:bookly_app/core/assets.dart';
-import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/welcome_view_body.dart';
 import 'package:flutter/material.dart';
 
