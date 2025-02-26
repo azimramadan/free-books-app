@@ -1,3 +1,5 @@
+import 'package:bookly_app/features/auth/presentation/view/widgets/custom_app_bar.dart';
+import 'package:bookly_app/features/auth/presentation/view/widgets/sign_in_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SignInView extends StatelessWidget {
@@ -6,42 +8,8 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Get Started',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-        ),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text('Please fill your details to login.'),
-            ),
-            TextField(),
-            SizedBox(height: 50),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.grey[300], // لون الخلفية
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10), // حواف مستديرة
-                  borderSide: BorderSide.none, // بدون حدود
-                ),
-                hintText: "Password",
-                suffixIcon: IconButton(
-                  icon: Icon(true ? Icons.visibility_off : Icons.visibility),
-                  onPressed: () {},
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      appBar: const CustomAppBar(title: 'Get Started'),
+      body: SignInViewBody(),
     );
   }
 }

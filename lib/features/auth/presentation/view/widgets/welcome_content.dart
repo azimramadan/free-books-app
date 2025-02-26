@@ -1,7 +1,9 @@
 import 'package:bookly_app/core/assets.dart';
+import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/custom_elevated_button%20.dart';
-import 'package:bookly_app/features/auth/presentation/view/widgets/register_button.dart';
+import 'package:bookly_app/features/auth/presentation/view/widgets/tap_text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class WelcomeContent extends StatelessWidget {
   const WelcomeContent({super.key});
@@ -21,10 +23,18 @@ class WelcomeContent extends StatelessWidget {
           ),
         ),
         Spacer(flex: 2),
-        CustomElevatedButton(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: CustomElevatedButton(),
+        ),
         Spacer(flex: 1),
 
-        RegisterButton(),
+        TapTextButton(
+          actionText: 'Register',
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kSignInView);
+          },
+        ),
         Spacer(flex: 2),
       ],
     );
