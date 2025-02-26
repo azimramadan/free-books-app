@@ -1,7 +1,5 @@
 import 'package:bookly_app/core/constants.dart';
-import 'package:bookly_app/core/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class TapTextButton extends StatelessWidget {
   const TapTextButton({

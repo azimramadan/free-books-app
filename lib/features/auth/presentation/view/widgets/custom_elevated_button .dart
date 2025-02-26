@@ -1,11 +1,14 @@
 import 'package:bookly_app/core/constants.dart';
-import 'package:bookly_app/core/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({super.key});
-
+  const CustomElevatedButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+  });
+  final void Function() onPressed;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -14,11 +17,9 @@ class CustomElevatedButton extends StatelessWidget {
         minimumSize: Size(double.infinity, 56),
         backgroundColor: kPrimaryColor,
       ),
-      onPressed: () {
-        GoRouter.of(context).push(AppRouter.kSignInView);
-      },
+      onPressed: onPressed,
       child: Text(
-        'Get Started',
+        text,
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
       ),
     );

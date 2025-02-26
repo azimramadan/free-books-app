@@ -1,8 +1,8 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:flutter/material.dart';
 
-class PasswordTextFormField extends StatelessWidget {
-  const PasswordTextFormField({super.key});
+class TextFormFieldWithIcon extends StatelessWidget {
+  const TextFormFieldWithIcon({super.key});
 
   @override
   Widget build(BuildContext context) {

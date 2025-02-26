@@ -25,14 +25,19 @@ class WelcomeContent extends StatelessWidget {
         Spacer(flex: 2),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: CustomElevatedButton(),
+          child: CustomElevatedButton(
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kSignInView);
+            },
+            text: 'Get Started',
+          ),
         ),
         Spacer(flex: 1),
 
         TapTextButton(
           actionText: 'Register',
           onTap: () {
-            GoRouter.of(context).push(AppRouter.kSignInView);
+            GoRouter.of(context).push(AppRouter.kRegisterView);
           },
         ),
         Spacer(flex: 2),
