@@ -1,57 +1,40 @@
-import 'package:bookly_app/core/routes.dart';
-import 'package:bookly_app/features/auth/presentation/view/widgets/auth_navigation_text.dart';
+import 'package:bookly_app/core/constants.dart';
+import 'package:bookly_app/core/utils/snack_bar_util.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/custom_app_bar.dart';
-import 'package:bookly_app/features/auth/presentation/view/widgets/custom_elevated_button%20.dart';
-import 'package:bookly_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
-import 'package:bookly_app/features/auth/presentation/view/widgets/left_aligned_text.dart';
+import 'package:bookly_app/features/auth/presentation/view/widgets/register_view_body.dart';
+import 'package:bookly_app/features/auth/presentation/view_model/auth_register_cubit/auth_register_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(title: 'Register'),
-      body: const RegisterViewBody(),
-    );
-  }
-}
-
-class RegisterViewBody extends StatelessWidget {
-  const RegisterViewBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          children: [
-            const SizedBox(height: 50),
-            LeftAlignedText(text: 'Please fill your details to signup.'),
-            const SizedBox(height: 32),
-            const CustomTextFormField(hintText: 'Username'),
-            const SizedBox(height: 24),
-            const CustomTextFormField(hintText: 'Email'),
-            const SizedBox(height: 24),
-            const CustomTextFormField(hintText: 'Password'),
-            const SizedBox(height: 24),
-            const CustomTextFormField(hintText: 'Confirm Password'),
-            const SizedBox(height: 32),
-            CustomElevatedButton(onPressed: () {}, text: 'Register'),
-            const SizedBox(height: 113),
-            AuthNavigationText(
-              text: 'Already a member? ',
-              actionText: 'SignIn',
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kSignInView);
-              },
-            ),
-          ],
-        ),
-      ),
+    return BlocConsumer<AuthRegisterCubit, AuthRegisterState>(
+      listener: (context, state) {
+        if (state is AuthRegisterSuccess) {
+          SnackBarUtil.showCustomSnackBar(
+            context,
+            "Registration successful!",
+            isError: false,
+          );
+        } else if (state is AuthRegisterFailure) {
+          SnackBarUtil.showCustomSnackBar(context, state.error, isError: true);
+        }
+      },
+      builder: (context, state) {
+        return ModalProgressHUD(
+          inAsyncCall: state is AuthRegisterLoading ? true : false,
+          color: kPrimaryColor,
+          progressIndicator: CircularProgressIndicator(color: kPrimaryColor),
+          child: Scaffold(
+            appBar: const CustomAppBar(title: 'Register'),
+            body: const RegisterViewBody(),
+          ),
+        );
+      },
     );
   }
 }
