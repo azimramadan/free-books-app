@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/auth/data/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -71,8 +72,65 @@ class FirebaseService {
         password: password,
       );
       return userCredential.user;
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+      switch (e.code) {
+        case 'user-not-found':
+          errorMessage =
+              "No account found with this email. Please check and try again.";
+          break;
+        case 'wrong-password':
+          errorMessage = "Incorrect password. Please try again.";
+          break;
+        case 'invalid-email':
+          errorMessage = "Invalid email format. Please enter a valid email.";
+          break;
+        case 'user-disabled':
+          errorMessage =
+              "This account has been disabled. Please contact support.";
+          break;
+        default:
+          errorMessage =
+              "An error occurred while logging in. Please try again later.";
+      }
+      throw Exception(errorMessage);
     } catch (e) {
-      throw Exception("Error logging in: ${e.toString()}");
+      throw Exception("An unexpected error occurred. Please try again.");
+    }
+  }
+
+  // Get Email by Username
+  Future<String?> getEmailByUsername({required String username}) async {
+    try {
+      QuerySnapshot querySnapshot =
+          await firestore
+              .collection("users")
+              .where("username", isEqualTo: username)
+              .limit(1)
+              .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        return querySnapshot.docs.first["email"];
+      } else {
+        throw Exception("No user found with this username.");
+      }
+    } catch (e) {
+      throw Exception("Error fetching email: ${e.toString()}");
+    }
+  }
+
+  Future<UserModel?> getUserData(String uid) async {
+    try {
+      DocumentSnapshot userDoc =
+          await firestore.collection("users").doc(uid).get();
+
+      if (userDoc.exists) {
+        return UserModel.fromMap(userDoc.data() as Map<String, dynamic>);
+      } else {
+        return null;
+      }
+    } catch (e) {
+      throw Exception("Error fetching user data: ${e.toString()}");
     }
   }
 

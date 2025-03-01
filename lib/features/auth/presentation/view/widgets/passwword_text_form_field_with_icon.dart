@@ -1,12 +1,29 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:flutter/material.dart';
 
-class TextFormFieldWithIcon extends StatelessWidget {
-  const TextFormFieldWithIcon({super.key});
+class PasswordTextFormFieldWithIcon extends StatefulWidget {
+  const PasswordTextFormFieldWithIcon({
+    super.key,
+    this.controller,
+    this.validator,
+  });
 
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  @override
+  State<PasswordTextFormFieldWithIcon> createState() =>
+      _PasswordTextFormFieldWithIconState();
+}
+
+class _PasswordTextFormFieldWithIconState
+    extends State<PasswordTextFormFieldWithIcon> {
+  bool isObscure = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: widget.validator,
+      controller: widget.controller,
+      obscureText: isObscure,
       cursorColor: kSecondaryColor,
       decoration: InputDecoration(
         filled: true,
@@ -26,8 +43,12 @@ class TextFormFieldWithIcon extends StatelessWidget {
           color: kSecondaryColor,
         ),
         suffixIcon: IconButton(
-          icon: Icon(true ? Icons.visibility : Icons.visibility_off),
-          onPressed: () {},
+          icon: Icon(isObscure ? Icons.visibility_off : Icons.visibility),
+          onPressed: () {
+            setState(() {
+              isObscure = !isObscure;
+            });
+          },
         ),
       ),
     );
