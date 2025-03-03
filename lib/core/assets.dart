@@ -10,4 +10,6 @@ class Assets {
   static const String iconCategory_4 = "assets/images/category_4.png";
 
   static const String welcomeBookCover = "assets/images/welcome.png";
+
+  static const String testImage = "assets/images/test_image_book.png";
 }

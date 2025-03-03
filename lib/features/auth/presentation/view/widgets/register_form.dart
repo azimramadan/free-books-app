@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utils/helpers/validators.dart';
+import 'package:bookly_app/core/validation/validators.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/custom_elevated_button%20.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:bookly_app/features/auth/presentation/view_model/auth_register_cubit/auth_register_cubit.dart';

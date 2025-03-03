@@ -1,10 +1,12 @@
 import 'package:bookly_app/core/constants.dart';
-import 'package:bookly_app/core/utils/snack_bar_util.dart';
+import 'package:bookly_app/core/notifications/snack_bar_util.dart';
+import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/sign_in_view_body.dart';
 import 'package:bookly_app/features/auth/presentation/view_model/auth_sign_in_cubit/auth_sign_in_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignInView extends StatelessWidget {
@@ -20,6 +22,7 @@ class SignInView extends StatelessWidget {
             "Registration successful!",
             isError: false,
           );
+          GoRouter.of(context).push(AppRouter.kHomeView);
         } else if (state is AuthSignInFailure) {
           SnackBarUtil.showCustomSnackBar(context, state.error, isError: true);
         }
