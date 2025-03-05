@@ -2,10 +2,7 @@ import 'package:bookly_app/core/assets.dart';
 import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_section.dart';
-import 'package:bookly_app/features/home/presentation/view/widgets/filter_buttons_row.dart';
-import 'package:bookly_app/features/home/presentation/view/widgets/horizontal_book_list.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/latest_books_section.dart';
-import 'package:bookly_app/features/home/presentation/view/widgets/section_title.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/top_books_section.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/upcoming_books_section.dart';
 
@@ -57,7 +54,11 @@ final List<Book> books = [
     author: 'Kate Racculia',
     price: '33.00',
     discount: '12',
-    genre: 'Mystery Novel', // 🆕 تحديد النوع
+    genre: 'Mystery Novel',
+    description:
+        'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
+    category: 'Classic',
+    rating: '4.11/5',
   ),
   Book(
     id: '1',
@@ -66,7 +67,11 @@ final List<Book> books = [
     author: 'Kate Racculia',
     price: '33.00',
     discount: '12',
-    genre: 'Mystery Novel', // 🆕 تحديد النوع
+    genre: 'Mystery Novel',
+    description:
+        'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
+    category: 'Classic',
+    rating: '4.11/5',
   ),
   Book(
     id: '1',
@@ -75,7 +80,11 @@ final List<Book> books = [
     author: 'Kate Racculia',
     price: '33.00',
     discount: '12',
-    genre: 'Mystery Novel', // 🆕 تحديد النوع
+    genre: 'Mystery Novel',
+    description:
+        'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
+    category: 'Classic',
+    rating: '4.11/5',
   ),
   Book(
     id: '1',
@@ -84,6 +93,10 @@ final List<Book> books = [
     author: 'Kate Racculia',
     price: '33.00',
     discount: '12',
-    genre: 'Mystery Novel', // 🆕 تحديد النوع
+    genre: 'Mystery Novel',
+    description:
+        'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
+    category: 'Classic',
+    rating: '4.11/5',
   ),
 ];

@@ -6,6 +6,11 @@ class Book {
   final String price;
   final String discount;
   final String genre;
+  final String description;
+  final String category;
+
+  final String rating;
+
   Book({
     required this.id,
     required this.image,
@@ -14,6 +19,9 @@ class Book {
     required this.price,
     required this.discount,
     required this.genre,
+    required this.description,
+    required this.category,
+    required this.rating,
   });
 
   // تحويل الـ JSON إلى كائن Book
@@ -26,6 +34,9 @@ class Book {
       price: json['price'] ?? '',
       discount: json['discount'] ?? '',
       genre: json['genre'] ?? 'Unknown',
+      description: json['description'] ?? '',
+      category: json['category'] ?? '',
+      rating: json['rating'] ?? '',
     );
   }
 
@@ -38,8 +49,10 @@ class Book {
       'author': author,
       'price': price,
       'discount': discount,
-
       'genre': genre,
+      'description': description,
+      'category': category,
+      'rating': rating,
     };
   }
 }
