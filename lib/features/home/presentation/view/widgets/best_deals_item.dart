@@ -2,7 +2,6 @@ import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_item_content.dart';
-import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

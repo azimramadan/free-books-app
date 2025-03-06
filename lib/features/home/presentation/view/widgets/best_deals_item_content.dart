@@ -1,7 +1,6 @@
 import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_item_details.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_item_image.dart';
-import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/cupertino.dart';
 
 class BestDealsItemContent extends StatelessWidget {

@@ -1,7 +1,10 @@
+import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/filter_buttons_row.dart';
+import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/horizontal_book_list.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/section_title.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 
 class TopBooksSection extends StatelessWidget {
   const TopBooksSection({super.key});
@@ -14,7 +17,12 @@ class TopBooksSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(left: 16, right: screenWidth * 0.09),
-          child: SectionTitle(title: 'Top Books'),
+          child: SectionTitle(
+            title: 'Top Books',
+            onTap: () {
+              context.push(AppRouter.kTopBooksView, extra: books);
+            },
+          ),
         ),
         Padding(
           padding: EdgeInsets.only(left: 16, top: 6),

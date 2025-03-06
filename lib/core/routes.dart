@@ -7,6 +7,7 @@ import 'package:bookly_app/features/cart/presentation/view/cart_view.dart';
 import 'package:bookly_app/features/categories/presentation/view/categories_view.dart';
 import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/home_view.dart';
+import 'package:bookly_app/features/home/presentation/view/top_books_view.dart';
 import 'package:bookly_app/features/shared/presentation/view/book_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -20,6 +21,7 @@ abstract class AppRouter {
   static final kCategoriesView = '/CategoriesVieww';
 
   static final kBookDetailsView = '/BookDetailsView';
+  static final kTopBooksView = '/TopBooksView';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -53,7 +55,14 @@ abstract class AppRouter {
             path: kBookDetailsView,
             builder: (context, state) {
               final book = state.extra as Book;
-              return BookDetailVieww(book: book);
+              return BookDetailView(book: book);
+            },
+          ),
+          GoRoute(
+            path: kTopBooksView,
+            builder: (context, state) {
+              final books = state.extra as List<Book>;
+              return TopBooksView(books: books);
             },
           ),
 

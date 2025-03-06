@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -8,6 +9,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      iconTheme: IconThemeData(size: 30, color: kPrimaryColor),
+      backgroundColor: Colors.white,
       title: Text(
         title,
         style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),

@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/view/widgets/book_card.dart';
+import 'package:bookly_app/features/shared/presentation/view/widgets/book_card.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/cupertino.dart';
 
