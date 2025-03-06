@@ -3,13 +3,13 @@ import 'package:bookly_app/features/categories/presentation/view/widgets/search_
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
-
+  const SearchBar({super.key, required this.shouldFocusSearch});
+  final bool shouldFocusSearch;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: SearchTextField()),
+        Expanded(child: SearchTextField(shouldFocusSearch: shouldFocusSearch)),
         SizedBox(width: 10),
         FilterButton(),
       ],

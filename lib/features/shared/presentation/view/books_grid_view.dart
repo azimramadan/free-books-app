@@ -3,16 +3,16 @@ import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 
-class TopBooksView extends StatelessWidget {
-  const TopBooksView({super.key, required this.books});
+class BooksGridView extends StatelessWidget {
+  const BooksGridView({super.key, required this.books, required this.viewName});
   final List<Book> books;
-
+  final String viewName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Top Books"),
+      appBar: CustomAppBar(title: viewName),
       body: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, bottom: 16),
+        padding: const EdgeInsets.only(left: 12, right: 12, bottom: 16, top: 8),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3, // 3 أعمدة

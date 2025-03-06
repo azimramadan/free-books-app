@@ -20,7 +20,10 @@ class TopBooksSection extends StatelessWidget {
           child: SectionTitle(
             title: 'Top Books',
             onTap: () {
-              context.push(AppRouter.kTopBooksView, extra: books);
+              context.push(
+                AppRouter.kTopBooksView,
+                extra: [books, 'Top Books'],
+              );
             },
           ),
         ),

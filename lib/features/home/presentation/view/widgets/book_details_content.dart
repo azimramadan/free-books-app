@@ -43,7 +43,7 @@ class BookDetailsContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "\$${book.price}",
+              book.price == null ? '' : "\$${book.price}",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.width * .035,

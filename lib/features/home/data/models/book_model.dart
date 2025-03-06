@@ -3,7 +3,7 @@ class Book {
   final String image;
   final String title;
   final String author;
-  final String price;
+  final String? price;
   final String discount;
   final String genre;
   final String description;
@@ -16,7 +16,7 @@ class Book {
     required this.image,
     required this.title,
     required this.author,
-    required this.price,
+    this.price,
     required this.discount,
     required this.genre,
     required this.description,

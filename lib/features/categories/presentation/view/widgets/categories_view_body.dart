@@ -3,8 +3,12 @@ import 'package:bookly_app/features/categories/presentation/view/widgets/search_
 import 'package:flutter/cupertino.dart';
 
 class CategoriesViewBody extends StatelessWidget {
-  const CategoriesViewBody({super.key, required this.screenWidth});
-
+  const CategoriesViewBody({
+    super.key,
+    required this.screenWidth,
+    required this.shouldFocusSearch,
+  });
+  final bool shouldFocusSearch;
   final double screenWidth;
 
   @override
@@ -14,7 +18,9 @@ class CategoriesViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(child: SizedBox(height: 30)),
-          SliverToBoxAdapter(child: SearchBar()),
+          SliverToBoxAdapter(
+            child: SearchBar(shouldFocusSearch: shouldFocusSearch),
+          ),
           SliverToBoxAdapter(child: SizedBox(height: 25)),
           SliverToBoxAdapter(
             child: Text(

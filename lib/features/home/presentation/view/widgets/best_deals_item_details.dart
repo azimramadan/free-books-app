@@ -1,6 +1,6 @@
 import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/book_discount_badge.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class BestDealsItemDetails extends StatelessWidget {
@@ -39,7 +39,7 @@ class BestDealsItemDetails extends StatelessWidget {
         Row(
           children: [
             Text(
-              r'$' + book.price,
+              r'$' + book.price!,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: screenWidth * 0.045,

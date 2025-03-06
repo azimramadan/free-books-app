@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/features/categories/presentation/view/widgets/custom_filter_chip.dart';
 import 'package:flutter/material.dart';
 

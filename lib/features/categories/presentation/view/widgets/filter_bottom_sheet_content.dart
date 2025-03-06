@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:bookly_app/features/categories/presentation/view/widgets/custom_slider.dart';
 import 'package:bookly_app/features/categories/presentation/view/widgets/filter_header.dart';
 import 'package:bookly_app/features/categories/presentation/view/widgets/filter_type_section.dart';
 import 'package:bookly_app/features/categories/presentation/view/widgets/price_range_section.dart';

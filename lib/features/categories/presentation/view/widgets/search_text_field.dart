@@ -1,8 +1,36 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:flutter/material.dart';
 
-class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key});
+class SearchTextField extends StatefulWidget {
+  const SearchTextField({super.key, required this.shouldFocusSearch});
+  final bool shouldFocusSearch;
+
+  @override
+  State<SearchTextField> createState() => _SearchTextFieldState();
+}
+
+class _SearchTextFieldState extends State<SearchTextField> {
+  final TextEditingController _controller = TextEditingController();
+  final FocusNode focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // إذا كان البحث يجب أن يكون نشطًا، نفعل الـ FocusNode تلقائيًا
+    if (widget.shouldFocusSearch) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        focusNode.requestFocus();
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    focusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +38,7 @@ class SearchTextField extends StatelessWidget {
       // controller: controller,
       // validator: validator,
       // obscureText: obscureText ?? false,
+      focusNode: focusNode,
       cursorColor: kSecondaryColor,
       decoration: InputDecoration(
         prefixIcon: GestureDetector(

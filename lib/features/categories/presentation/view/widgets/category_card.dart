@@ -1,4 +1,7 @@
+import 'package:bookly_app/core/routes.dart';
+import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CategoryCard extends StatelessWidget {
   final String title;
@@ -7,26 +10,31 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: AssetImage(imageUrl),
-          fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(
-            Colors.black.withValues(alpha: (0.6 * 255)),
+    return GestureDetector(
+      onTap: () {
+        context.push(AppRouter.kTopBooksView, extra: [books, title]);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image: DecorationImage(
+            image: AssetImage(imageUrl),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withValues(alpha: (0.6 * 255)),
 
-            BlendMode.darken,
+              BlendMode.darken,
+            ),
           ),
         ),
-      ),
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
