@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/core/notifications/snack_bar_util.dart';
 import 'package:bookly_app/core/routes.dart';
-import 'package:bookly_app/core/presentation/widgets/custom_app_bar.dart';
+import 'package:bookly_app/features/shared/presentation/view/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/register_view_body.dart';
 import 'package:bookly_app/features/auth/presentation/view_model/auth_register_cubit/auth_register_cubit.dart';
 import 'package:flutter/material.dart';

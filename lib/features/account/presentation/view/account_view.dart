@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:bookly_app/features/account/presentation/view/widgets/account_view_body.dart';
+import 'package:bookly_app/features/shared/presentation/view/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class AccountView extends StatelessWidget {
@@ -6,6 +7,12 @@ class AccountView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: CustomAppBar(title: 'Account'),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+        child: AccountViewBody(),
+      ),
+    );
   }
 }
