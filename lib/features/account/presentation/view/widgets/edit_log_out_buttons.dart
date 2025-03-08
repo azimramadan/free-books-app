@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/features/account/presentation/view/widgets/edit_logout_button.dart';
 import 'package:flutter/material.dart';
 

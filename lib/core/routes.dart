@@ -84,7 +84,7 @@ abstract class AppRouter {
           GoRoute(
             path: kCartView,
             builder: (BuildContext context, GoRouterState state) {
-              return const CartView();
+              return CartView();
             },
           ),
           GoRoute(

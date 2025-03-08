@@ -59,6 +59,7 @@ final List<Book> books = [
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',
     rating: '4.11/5',
+    quantity: '1',
   ),
   Book(
     id: '1',
@@ -72,6 +73,7 @@ final List<Book> books = [
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',
     rating: '4.11/5',
+    quantity: '1',
   ),
   Book(
     id: '1',
@@ -85,6 +87,7 @@ final List<Book> books = [
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',
     rating: '4.11/5',
+    quantity: '1',
   ),
   Book(
     id: '1',
@@ -94,6 +97,7 @@ final List<Book> books = [
     price: '33.00',
     discount: '12',
     genre: 'Mystery Novel',
+    quantity: '1',
     description:
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',
@@ -107,6 +111,7 @@ final List<Book> books = [
     price: '33.00',
     discount: '12',
     genre: 'Mystery Novel',
+    quantity: '1',
     description:
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',
@@ -120,6 +125,7 @@ final List<Book> books = [
     price: '33.00',
     discount: '12',
     genre: 'Mystery Novel',
+    quantity: '1',
     description:
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',
@@ -133,6 +139,7 @@ final List<Book> books = [
     price: '33.00',
     discount: '12',
     genre: 'Mystery Novel',
+    quantity: '1',
     description:
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',
@@ -146,6 +153,7 @@ final List<Book> books = [
     price: '33.00',
     discount: '12',
     genre: 'Mystery Novel',
+    quantity: '1',
     description:
         'abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication abdelazim ramadan is th best developer for flutter aplication ',
     category: 'Classic',

@@ -9,6 +9,8 @@ class Book {
   final String description;
   final String category;
 
+  final String quantity;
+
   final String rating;
 
   Book({
@@ -22,6 +24,7 @@ class Book {
     required this.description,
     required this.category,
     required this.rating,
+    required this.quantity,
   });
 
   // تحويل الـ JSON إلى كائن Book
@@ -37,6 +40,7 @@ class Book {
       description: json['description'] ?? '',
       category: json['category'] ?? '',
       rating: json['rating'] ?? '',
+      quantity: json['quantity'] ?? '',
     );
   }
 
@@ -53,6 +57,8 @@ class Book {
       'description': description,
       'category': category,
       'rating': rating,
+
+      'quantity': quantity,
     };
   }
 }

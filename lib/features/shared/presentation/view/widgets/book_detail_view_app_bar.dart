@@ -1,6 +1,8 @@
 import 'package:bookly_app/core/constants.dart';
+import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailViewAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -31,7 +33,9 @@ class BookDetailViewAppBar extends StatelessWidget
             iconSize: screenWidth * 0.067,
             color: kPrimaryColor,
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+              context.push(AppRouter.kCartView);
+            },
           ),
         ),
       ],
