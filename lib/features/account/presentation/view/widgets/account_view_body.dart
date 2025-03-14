@@ -1,8 +1,11 @@
+import 'package:bookly_app/core/routes.dart';
+import 'package:bookly_app/core/services/firebase_service.dart';
 import 'package:bookly_app/features/account/presentation/view/widgets/build_info_tile.dart';
 import 'package:bookly_app/features/account/presentation/view/widgets/edit_address_dialog.dart';
 import 'package:bookly_app/features/account/presentation/view/widgets/edit_log_out_buttons.dart';
 import 'package:bookly_app/features/account/presentation/view/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AccountViewBody extends StatefulWidget {
   const AccountViewBody({super.key});
@@ -45,8 +48,14 @@ class _AccountViewBodyState extends State<AccountViewBody> {
           buildInfoTile('E-mail', 'johndoe123@mail.com'),
           buildInfoTile('Password', '********'),
           buildInfoTile('Address', address),
-          const SizedBox(height: 20),
-          EditLogoutButtons(editOnPressed: editAddress, logOutOnPressed: () {}),
+          const SizedBox(height: 85),
+          EditLogoutButtons(
+            editOnPressed: editAddress,
+            logOutOnPressed: () {
+              FirebaseService().logout();
+              context.go(AppRouter.kSignInView);
+            },
+          ),
         ],
       ),
     );

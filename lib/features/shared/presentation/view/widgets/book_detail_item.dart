@@ -1,4 +1,6 @@
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/presentation/view/widgets/add_to_cart_butto.dart';
+import 'package:bookly_app/features/shared/presentation/view/widgets/free_book_actions.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailItem extends StatelessWidget {
@@ -13,31 +15,21 @@ class BookDetailItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 12),
-        bookAttributeItem("Author", book.author, context),
+        bookAttributeItem("Author", book.authors[0], context),
         bookAttributeItem("Category", book.category, context),
-        bookAttributeItem("Rating", book.rating, context),
-        bookAttributeItem("Pricing", "\$25.00", context, isPrice: true),
-
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6),
-              ),
-            ),
-            child: const Text(
-              "Add to Cart",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+        bookAttributeItem("Rating", book.rating.toString(), context),
+        bookAttributeItem(
+          "Pricing",
+          book.price == 0 ? 'free' : book.price.toString(),
+          context,
+          isPrice: true,
         ),
+        book.price == 0
+            ? FreeBookActions(
+              downloadLinkPdf: book.downloadLinkPdf,
+              webReaderLink: book.webReaderLink,
+            )
+            : AddToCartButton(),
       ],
     );
   }

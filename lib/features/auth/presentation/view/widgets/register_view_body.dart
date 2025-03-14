@@ -12,7 +12,7 @@ class RegisterViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
 
         child: Column(
           children: [
@@ -21,7 +21,7 @@ class RegisterViewBody extends StatelessWidget {
             const SizedBox(height: 32),
 
             const RegisterForm(),
-            const SizedBox(height: 113),
+            const SizedBox(height: 180),
             AuthNavigationText(
               text: 'Already a member? ',
               actionText: 'SignIn',

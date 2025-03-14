@@ -6,7 +6,7 @@ class CheckoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 24, bottom: 16, left: 16, right: 10),
+      padding: const EdgeInsets.only(top: 24, bottom: 16, left: 20, right: 20),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(

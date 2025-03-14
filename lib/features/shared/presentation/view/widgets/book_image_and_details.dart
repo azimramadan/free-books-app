@@ -1,6 +1,7 @@
-import 'package:bookly_app/core/assets.dart';
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_detail_item.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BookImageAndDetails extends StatelessWidget {
@@ -23,8 +24,8 @@ class BookImageAndDetails extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset(
-            Assets.testImage,
+          child: CachedNetworkImage(
+            imageUrl: book.image,
             width: imageSize,
             height: imageSize * 1.55,
             fit: BoxFit.cover,

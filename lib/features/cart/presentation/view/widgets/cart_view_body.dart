@@ -29,6 +29,7 @@ class CartItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.symmetric(horizontal: 20),
       itemCount: books.length,
       itemBuilder: (context, index) {
         return CartItemWidget(

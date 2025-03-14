@@ -30,8 +30,9 @@ class SignInView extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is AuthSignInLoading ? true : false,
+          opacity: .85,
           color: kPrimaryColor,
-          progressIndicator: CircularProgressIndicator(color: kPrimaryColor),
+          progressIndicator: CircularProgressIndicator(color: Colors.white),
           child: Scaffold(
             appBar: const CustomAppBar(title: 'Get Started'),
             body: SignInViewBody(),

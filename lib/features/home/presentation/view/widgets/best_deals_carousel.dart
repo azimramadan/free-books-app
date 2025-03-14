@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_item.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,7 +19,7 @@ class BestDealsCarousel extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return CarouselSlider(
       options: CarouselOptions(
-        height: screenHeight * 0.23,
+        height: screenHeight * 0.19,
         enlargeCenterPage: true,
         autoPlay: true,
         autoPlayInterval: Duration(seconds: 3),

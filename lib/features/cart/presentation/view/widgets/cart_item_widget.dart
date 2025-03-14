@@ -2,7 +2,7 @@ import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/cart/presentation/view/widgets/book_info.dart';
 import 'package:bookly_app/features/cart/presentation/view/widgets/quantity_control.dart';
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,7 +26,7 @@ class CartItemWidget extends StatelessWidget {
       },
       child: Card(
         color: kPrimaryColor,
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Row(
@@ -46,7 +46,7 @@ class CartItemWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BookInfo(title: book.title, author: book.author),
+                    BookInfo(title: book.title, author: book.authors[0]),
                     const SizedBox(height: 8),
                     QuantityControl(
                       quantity: 1,

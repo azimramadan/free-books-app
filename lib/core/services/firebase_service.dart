@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/auth/data/models/user_model.dart';
+import 'package:bookly_app/features/shared/data/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -134,7 +134,10 @@ class FirebaseService {
     }
   }
 
-  // تسجيل الخروج
+  bool isUserLoggedIn() {
+    return auth.currentUser != null;
+  }
+
   Future<void> logout() async {
     await auth.signOut();
   }

@@ -10,7 +10,7 @@ class AccountView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: 'Account'),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: AccountViewBody(),
       ),
     );

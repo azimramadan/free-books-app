@@ -12,7 +12,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(AppRouter.kTopBooksView, extra: [books, title]);
+        context.push(AppRouter.kBooksGridView, extra: [books, title]);
       },
       child: Container(
         decoration: BoxDecoration(

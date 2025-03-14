@@ -12,12 +12,15 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: Colors.white,
-      title: Text(
-        'Happy Reading!',
-        style: TextStyle(
-          fontSize: screenWidth * 0.05,
-          fontWeight: FontWeight.bold,
-          color: kPrimaryColor,
+      title: Padding(
+        padding: const EdgeInsets.only(left: 3),
+        child: Text(
+          'Happy Reading!',
+          style: TextStyle(
+            fontSize: screenWidth * 0.05,
+            fontWeight: FontWeight.bold,
+            color: kPrimaryColor,
+          ),
         ),
       ),
       actions: [

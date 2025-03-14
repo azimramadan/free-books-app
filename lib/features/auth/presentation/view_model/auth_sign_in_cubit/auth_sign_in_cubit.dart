@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly_app/features/auth/data/models/user_model.dart';
+import 'package:bookly_app/features/shared/data/models/user_model.dart';
 import 'package:bookly_app/features/auth/data/repositories/sign_in_repository%20.dart';
 import 'package:meta/meta.dart';
 

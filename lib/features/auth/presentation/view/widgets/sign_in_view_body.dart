@@ -13,7 +13,7 @@ class SignInViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             const SizedBox(height: 50),
@@ -27,7 +27,7 @@ class SignInViewBody extends StatelessWidget {
               'forgot password?',
               style: TextStyle(decoration: TextDecoration.underline),
             ),
-            const SizedBox(height: 230),
+            SizedBox(height: (MediaQuery.of(context).size.height - 486.4)),
             AuthNavigationText(
               text: 'New member? ',
               actionText: 'Register',

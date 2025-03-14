@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/assets.dart';
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/custom_elevated_button%20.dart';
 import 'package:bookly_app/features/auth/presentation/view/widgets/tap_text_button.dart';
@@ -14,7 +14,7 @@ class WelcomeContent extends StatelessWidget {
       children: [
         WelcomeBackground(),
 
-        Spacer(flex: 2),
+        Spacer(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Text(
@@ -22,9 +22,9 @@ class WelcomeContent extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        Spacer(flex: 2),
+        Spacer(),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: CustomElevatedButton(
             onPressed: () {
               GoRouter.of(context).push(AppRouter.kSignInView);
@@ -32,7 +32,7 @@ class WelcomeContent extends StatelessWidget {
             text: 'Get Started',
           ),
         ),
-        Spacer(flex: 1),
+        Spacer(),
 
         TapTextButton(
           actionText: 'Register',
@@ -40,7 +40,7 @@ class WelcomeContent extends StatelessWidget {
             GoRouter.of(context).push(AppRouter.kRegisterView);
           },
         ),
-        Spacer(flex: 2),
+        SizedBox(height: 5),
       ],
     );
   }

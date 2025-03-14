@@ -3,20 +3,63 @@ import 'package:bookly_app/features/auth/data/repositories/register_repository%2
 import 'package:bookly_app/features/auth/data/repositories/sign_in_repository%20.dart';
 import 'package:bookly_app/features/auth/presentation/view_model/auth_register_cubit/auth_register_cubit.dart';
 import 'package:bookly_app/features/auth/presentation/view_model/auth_sign_in_cubit/auth_sign_in_cubit.dart';
+import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
+import 'package:bookly_app/features/shared/presentation/view/book_details_view.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // تأكد من تهيئة الـ Widgets
-  await Firebase.initializeApp(); // تهيئة Firebase
-  runApp(const FreeBooksApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  final prefs = await SharedPreferences.getInstance();
+  final bool isFirstTime = prefs.getBool('first_time') ?? true;
+
+  if (isFirstTime) {
+    await prefs.setBool('first_time', false);
+  }
+  await dotenv.load(fileName: ".env");
+  runApp(FreeBooksApp(isFirstTime: isFirstTime));
 }
 
-class FreeBooksApp extends StatelessWidget {
-  const FreeBooksApp({super.key});
+// class FreeBooksApp extends StatelessWidget {
+//   const FreeBooksApp({super.key, required this.isFirstTime});
+//   final bool isFirstTime;
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiBlocProvider(
+//       providers: [
+//         BlocProvider(
+//           create:
+//               (context) =>
+//                   AuthRegisterCubit(registerRepository: RegisterRepository()),
+//         ),
+//         BlocProvider(
+//           create:
+//               (context) =>
+//                   AuthSignInCubit(signInRepository: SignInRepository()),
+//         ),
+//       ],
+//       child: MaterialApp.router(
+//         debugShowCheckedModeBanner: false,
+//         theme: ThemeData(
+//           fontFamily: GoogleFonts.openSans().fontFamily,
+//           brightness: Brightness.light,
+//           scaffoldBackgroundColor: Colors.white,
+//         ),
+//         routerConfig: AppRouter.createRouter(isFirstTime),
+//       ),
+//     );
+//   }
+// }
 
+class FreeBooksApp extends StatelessWidget {
+  const FreeBooksApp({super.key, required this.isFirstTime});
+  final bool isFirstTime;
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -32,10 +75,14 @@ class FreeBooksApp extends StatelessWidget {
                   AuthSignInCubit(signInRepository: SignInRepository()),
         ),
       ],
-      child: MaterialApp.router(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: GoogleFonts.openSans().fontFamily),
-        routerConfig: AppRouter.router,
+        theme: ThemeData(
+          fontFamily: GoogleFonts.openSans().fontFamily,
+          brightness: Brightness.light,
+          scaffoldBackgroundColor: Colors.white,
+        ),
+        home: BookDetailView(book: books[0]),
       ),
     );
   }

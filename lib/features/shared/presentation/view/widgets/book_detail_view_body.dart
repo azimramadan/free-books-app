@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_description.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_image_and_details.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_title.dart';
@@ -16,11 +16,7 @@ class BookDetailViewBody extends StatelessWidget {
         double screenWidth = constraints.maxWidth;
         double paddingValue = screenWidth * 0.05;
         return Padding(
-          padding: EdgeInsets.only(
-            left: paddingValue,
-            right: paddingValue,
-            bottom: paddingValue,
-          ),
+          padding: EdgeInsets.only(left: 20, right: 20, bottom: paddingValue),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

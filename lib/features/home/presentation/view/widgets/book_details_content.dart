@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,9 @@ class BookDetailsContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          book.genre,
+          book.genres[0],
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
           style: TextStyle(
             color: Colors.white70,
             fontSize: MediaQuery.of(context).size.width * .028,
@@ -23,6 +25,7 @@ class BookDetailsContent extends StatelessWidget {
         Text(
           book.title,
           overflow: TextOverflow.ellipsis,
+          maxLines: 1,
           style: TextStyle(
             color: Colors.white,
             fontSize: MediaQuery.of(context).size.width * .035,
@@ -31,8 +34,9 @@ class BookDetailsContent extends StatelessWidget {
         ),
         SizedBox(height: 2),
         Text(
-          book.author,
-
+          book.authors[0],
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
           style: TextStyle(
             color: Colors.white70,
             fontSize: MediaQuery.of(context).size.width * .028,
@@ -43,7 +47,7 @@ class BookDetailsContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              book.price == null ? '' : "\$${book.price}",
+              book.price == 0 ? 'Free' : "\$${book.price}",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.width * .035,

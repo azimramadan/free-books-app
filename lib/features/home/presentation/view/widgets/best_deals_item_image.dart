@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 
 class BestDealsItemImage extends StatelessWidget {
@@ -10,8 +11,8 @@ class BestDealsItemImage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
-      child: Image.asset(
-        imageUrl,
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
         width: screenWidth * 0.25,
         height: double.infinity,
         fit: BoxFit.fill,

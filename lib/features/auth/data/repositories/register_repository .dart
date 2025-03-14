@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/services/firebase_service.dart';
-import 'package:bookly_app/features/auth/data/models/user_model.dart';
+import 'package:bookly_app/features/shared/data/models/user_model.dart';
 
 class RegisterRepository {
   final FirebaseService firebaseService = FirebaseService();

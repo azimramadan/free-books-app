@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/core/routes.dart';
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_item_content.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

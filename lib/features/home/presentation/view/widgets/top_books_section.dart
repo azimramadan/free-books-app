@@ -16,25 +16,25 @@ class TopBooksSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16, right: screenWidth * 0.09),
+          padding: EdgeInsets.only(left: 20, right: screenWidth * 0.09),
           child: SectionTitle(
             title: 'Top Books',
             onTap: () {
               context.push(
-                AppRouter.kTopBooksView,
+                AppRouter.kBooksGridView,
                 extra: [books, 'Top Books'],
               );
             },
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 16, top: 6),
+          padding: EdgeInsets.only(left: 20, top: 6),
           child: FilterButtonsRow(),
         ),
         SizedBox(height: 6),
         SizedBox(
-          height: MediaQuery.of(context).size.height / 3.5,
-          child: HorizontalBookList(),
+          height: MediaQuery.of(context).size.height / 4,
+          child: HorizontalBookList(books: books),
         ),
       ],
     );

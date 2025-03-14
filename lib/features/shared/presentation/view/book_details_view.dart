@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_detail_view_app_bar.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_detail_view_body.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,11 @@ class BookDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: BookDetailViewAppBar(screenWidth: screenWidth, book: book),
+      appBar: BookDetailViewAppBar(
+        screenWidth: screenWidth,
+        bookCategory:
+            book.category == 'Book' ? 'Unknown Category' : book.category,
+      ),
       body: BookDetailViewBody(book: book),
     );
   }

@@ -30,8 +30,9 @@ class RegisterView extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is AuthRegisterLoading ? true : false,
+          opacity: .85,
           color: kPrimaryColor,
-          progressIndicator: CircularProgressIndicator(color: kPrimaryColor),
+          progressIndicator: CircularProgressIndicator(color: Colors.white),
           child: Scaffold(
             appBar: const CustomAppBar(title: 'Register'),
             body: const RegisterViewBody(),

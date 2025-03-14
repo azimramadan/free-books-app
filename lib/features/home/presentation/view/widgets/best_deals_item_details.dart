@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/book_discount_badge.dart';
 
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class BestDealsItemDetails extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          book.genre,
+          book.genres[0],
           style: TextStyle(
             color: Color(0xffDEDEDE),
             fontSize: screenWidth * 0.03,
@@ -33,13 +33,13 @@ class BestDealsItemDetails extends StatelessWidget {
           ),
         ),
         Text(
-          book.author,
+          book.authors[0],
           style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.03),
         ),
         Row(
           children: [
             Text(
-              r'$' + book.price!,
+              r'$' + book.price.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: screenWidth * 0.045,
@@ -47,7 +47,7 @@ class BestDealsItemDetails extends StatelessWidget {
               ),
             ),
             Expanded(child: SizedBox()),
-            BookDiscountBadge(discount: book.discount),
+            BookDiscountBadge(discount: book.discount.toString()),
           ],
         ),
       ],

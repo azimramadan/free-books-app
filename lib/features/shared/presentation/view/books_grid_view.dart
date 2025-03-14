@@ -1,5 +1,5 @@
 import 'package:bookly_app/features/shared/presentation/view/widgets/custom_app_bar.dart';
-import 'package:bookly_app/features/home/data/models/book_model.dart';
+import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +12,11 @@ class BooksGridView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: viewName),
       body: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, bottom: 16, top: 8),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 16, top: 8),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, // 3 أعمدة
-            childAspectRatio: 0.6, // نسبة الطول إلى العرض
+            crossAxisCount: 3,
+            childAspectRatio: 0.6,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
           ),

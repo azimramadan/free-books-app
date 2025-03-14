@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/assets.dart';
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/features/categories/presentation/view/widgets/category_card.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -21,7 +21,7 @@ class CategoryGrid extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
 
-        childAspectRatio: 3 / 2,
+        childAspectRatio: 2.5 / 2,
       ),
     );
   }

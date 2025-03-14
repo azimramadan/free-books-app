@@ -20,7 +20,7 @@ class LatestBooksSection extends StatelessWidget {
             title: 'Latest Books',
             onTap: () {
               context.push(
-                AppRouter.kTopBooksView,
+                AppRouter.kBooksGridView,
                 extra: [books, 'Latest Books'],
               );
             },
@@ -29,8 +29,8 @@ class LatestBooksSection extends StatelessWidget {
 
         SizedBox(height: 8),
         SizedBox(
-          height: MediaQuery.of(context).size.height / 3.5,
-          child: HorizontalBookList(),
+          height: MediaQuery.of(context).size.height / 4,
+          child: HorizontalBookList(books: books),
         ),
       ],
     );
