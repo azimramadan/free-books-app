@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BooksGridView extends StatelessWidget {
-  const BooksGridView({super.key, required this.books, required this.viewName});
+  const BooksGridView({super.key, required this.viewName, required this.books});
   final List<Book> books;
   final String viewName;
   @override

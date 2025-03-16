@@ -1,10 +1,8 @@
-import 'package:bookly_app/features/home/presentation/view_model/best_deals_books_cubit/best_deals_books_cubit.dart';
 import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_item.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BestDealsCarousel extends StatelessWidget {
   const BestDealsCarousel({

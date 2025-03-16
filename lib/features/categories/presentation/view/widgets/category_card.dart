@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/routes.dart';
-import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
+import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_section.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,7 +12,13 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(AppRouter.kBooksGridView, extra: [books, title]);
+        context.push(
+          AppRouter.kBooksGridView,
+          extra: [
+            [dummyBook],
+            title,
+          ],
+        );
       },
       child: Container(
         decoration: BoxDecoration(

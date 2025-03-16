@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/Favorite/presentation/view_model/favorite_books_cubit/favorite_books_cubit.dart';
+import 'package:bookly_app/features/home/presentation/view/widgets/best_deals_section.dart';
 import 'package:bookly_app/features/shared/data/models/book_model.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -8,9 +9,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookly_app/features/Favorite/data/repositories/favorites_repository.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class FavoriteViewBody extends StatelessWidget {
   const FavoriteViewBody({super.key});
+
+  // كتب وهمية أثناء التحميل
+  static final List<Book> dummyBooks = List.generate(4, (index) => dummyBook);
 
   @override
   Widget build(BuildContext context) {
@@ -24,20 +29,31 @@ class FavoriteViewBody extends StatelessWidget {
           Expanded(
             child: BlocBuilder<FavoriteBooksCubit, FavoriteBooksState>(
               builder: (context, state) {
-                if (state is FavoriteBooksLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(color: kPrimaryColor),
-                  );
-                } else if (state is FavoriteBooksLoaded) {
-                  return state.books.isEmpty
-                      ? const Center(
-                        child: Text("Your favorites list is empty!"),
-                      )
-                      : FavoriteItemsList(books: state.books);
-                } else if (state is FavoriteBooksError) {
-                  return Center(child: Text("Error: ${state.message}"));
-                }
-                return Container();
+                bool isLoading = state is FavoriteBooksLoading;
+                bool isError = state is FavoriteBooksError;
+
+                return Skeletonizer(
+                  enabled: isLoading, // تفعيل تأثير Skeleton أثناء التحميل
+                  child:
+                      isError
+                          ? Center(
+                            child: Text(
+                              "Error: ${(state).message}",
+                              style: const TextStyle(color: Colors.red),
+                            ),
+                          )
+                          : (state is FavoriteBooksLoaded &&
+                              state.books.isEmpty)
+                          ? const Center(
+                            child: Text("Your favorites list is empty!"),
+                          )
+                          : FavoriteItemsList(
+                            books:
+                                isLoading
+                                    ? dummyBooks // عرض بيانات وهمية أثناء التحميل
+                                    : (state as FavoriteBooksLoaded).books,
+                          ),
+                );
               },
             ),
           ),
@@ -46,6 +62,44 @@ class FavoriteViewBody extends StatelessWidget {
     );
   }
 }
+
+// class FavoriteViewBody extends StatelessWidget {
+//   const FavoriteViewBody({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider(
+//       create:
+//           (context) =>
+//               FavoriteBooksCubit(favoritesRepository: FavoritesRepository())
+//                 ..loadFavoriteBooks(),
+//       child: Column(
+//         children: [
+//           Expanded(
+//             child: BlocBuilder<FavoriteBooksCubit, FavoriteBooksState>(
+//               builder: (context, state) {
+//                 if (state is FavoriteBooksLoading) {
+//                   return const Center(
+//                     child: CircularProgressIndicator(color: kPrimaryColor),
+//                   );
+//                 } else if (state is FavoriteBooksLoaded) {
+//                   return state.books.isEmpty
+//                       ? const Center(
+//                         child: Text("Your favorites list is empty!"),
+//                       )
+//                       : FavoriteItemsList(books: state.books);
+//                 } else if (state is FavoriteBooksError) {
+//                   return Center(child: Text("Error: ${state.message}"));
+//                 }
+//                 return Container();
+//               },
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class FavoriteItemsList extends StatelessWidget {
   final List<Book> books;

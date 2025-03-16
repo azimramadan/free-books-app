@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/shared/presentation/view/widgets/book_detail_item.dart';
 import 'package:cached_network_image/cached_network_image.dart';
