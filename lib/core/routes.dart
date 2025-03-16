@@ -4,7 +4,7 @@ import 'package:bookly_app/features/account/presentation/view/account_view.dart'
 import 'package:bookly_app/features/auth/presentation/view/register_view.dart';
 import 'package:bookly_app/features/auth/presentation/view/sign_in_view.dart';
 import 'package:bookly_app/features/auth/presentation/view/welcome_view.dart';
-import 'package:bookly_app/features/cart/presentation/view/cart_view.dart';
+import 'package:bookly_app/features/Favorite/presentation/view/favorite_view.dart';
 import 'package:bookly_app/features/categories/presentation/view/categories_view.dart';
 import 'package:bookly_app/features/shared/data/models/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/home_view.dart';
@@ -18,7 +18,7 @@ abstract class AppRouter {
   static final kSignInView = '/SignInView';
   static final kHomeView = '/HomeView';
   static final kAccountView = '/AccountView';
-  static final kCartView = '/CartView';
+  static final kFavoriteView = '/FavoriteView';
   static final kCategoriesView = '/CategoriesVieww';
 
   static final kBookDetailsView = '/BookDetailsView';
@@ -91,9 +91,9 @@ abstract class AppRouter {
               },
             ),
             GoRoute(
-              path: kCartView,
+              path: kFavoriteView,
               builder: (BuildContext context, GoRouterState state) {
-                return CartView();
+                return FavoriteView();
               },
             ),
             GoRoute(

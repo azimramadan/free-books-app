@@ -47,7 +47,6 @@ class ApiService {
     }
   }
 
-  // Fetch books using a list of `IDs`
   Future<List<dynamic>> fetchBooksByIds(List<String> bookIds) async {
     List<dynamic> books = [];
     for (String id in bookIds) {
@@ -70,7 +69,6 @@ class ApiService {
     return books;
   }
 
-  // Convert Dio errors into readable messages
   String _getDioErrorMessage(DioException e) {
     switch (e.type) {
       case DioExceptionType.connectionTimeout:

@@ -1,8 +1,11 @@
 import 'package:bookly_app/core/routes.dart';
+import 'package:bookly_app/features/account/presentation/view/account_view.dart';
+import 'package:bookly_app/features/account/presentation/view/widgets/account_view_body.dart';
 import 'package:bookly_app/features/auth/data/repositories/register_repository%20.dart';
 import 'package:bookly_app/features/auth/data/repositories/sign_in_repository%20.dart';
 import 'package:bookly_app/features/auth/presentation/view_model/auth_register_cubit/auth_register_cubit.dart';
 import 'package:bookly_app/features/auth/presentation/view_model/auth_sign_in_cubit/auth_sign_in_cubit.dart';
+import 'package:bookly_app/features/home/presentation/view/home_view.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:bookly_app/features/shared/presentation/view/book_details_view.dart';
 
@@ -26,37 +29,6 @@ void main() async {
   runApp(FreeBooksApp(isFirstTime: isFirstTime));
 }
 
-// class FreeBooksApp extends StatelessWidget {
-//   const FreeBooksApp({super.key, required this.isFirstTime});
-//   final bool isFirstTime;
-//   @override
-//   Widget build(BuildContext context) {
-//     return MultiBlocProvider(
-//       providers: [
-//         BlocProvider(
-//           create:
-//               (context) =>
-//                   AuthRegisterCubit(registerRepository: RegisterRepository()),
-//         ),
-//         BlocProvider(
-//           create:
-//               (context) =>
-//                   AuthSignInCubit(signInRepository: SignInRepository()),
-//         ),
-//       ],
-//       child: MaterialApp.router(
-//         debugShowCheckedModeBanner: false,
-//         theme: ThemeData(
-//           fontFamily: GoogleFonts.openSans().fontFamily,
-//           brightness: Brightness.light,
-//           scaffoldBackgroundColor: Colors.white,
-//         ),
-//         routerConfig: AppRouter.createRouter(isFirstTime),
-//       ),
-//     );
-//   }
-// }
-
 class FreeBooksApp extends StatelessWidget {
   const FreeBooksApp({super.key, required this.isFirstTime});
   final bool isFirstTime;
@@ -75,15 +47,46 @@ class FreeBooksApp extends StatelessWidget {
                   AuthSignInCubit(signInRepository: SignInRepository()),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: GoogleFonts.openSans().fontFamily,
           brightness: Brightness.light,
           scaffoldBackgroundColor: Colors.white,
         ),
-        home: BookDetailView(book: books[0]),
+        routerConfig: AppRouter.createRouter(isFirstTime),
       ),
     );
   }
 }
+
+// class FreeBooksApp extends StatelessWidget {
+//   const FreeBooksApp({super.key, required this.isFirstTime});
+//   final bool isFirstTime;
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiBlocProvider(
+//       providers: [
+//         BlocProvider(
+//           create:
+//               (context) =>
+//                   AuthRegisterCubit(registerRepository: RegisterRepository()),
+//         ),
+//         BlocProvider(
+//           create:
+//               (context) =>
+//                   AuthSignInCubit(signInRepository: SignInRepository()),
+//         ),
+//       ],
+//       child: MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         theme: ThemeData(
+//           fontFamily: GoogleFonts.openSans().fontFamily,
+//           brightness: Brightness.light,
+//           scaffoldBackgroundColor: Colors.white,
+//         ),
+//         home: AccountView(),
+//       ),
+//     );
+//   }
+// }

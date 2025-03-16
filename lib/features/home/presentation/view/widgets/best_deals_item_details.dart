@@ -17,6 +17,8 @@ class BestDealsItemDetails extends StatelessWidget {
       children: [
         Text(
           book.genres[0],
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color: Color(0xffDEDEDE),
             fontSize: screenWidth * 0.03,
@@ -34,12 +36,14 @@ class BestDealsItemDetails extends StatelessWidget {
         ),
         Text(
           book.authors[0],
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
           style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.03),
         ),
         Row(
           children: [
             Text(
-              r'$' + book.price.toString(),
+              book.price == 0 ? 'Free' : r'$' + book.price.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: screenWidth * 0.045,
@@ -47,7 +51,9 @@ class BestDealsItemDetails extends StatelessWidget {
               ),
             ),
             Expanded(child: SizedBox()),
-            BookDiscountBadge(discount: book.discount.toString()),
+            BookDiscountBadge(
+              discount: book.price == 0 ? '100' : book.discount.toString(),
+            ),
           ],
         ),
       ],

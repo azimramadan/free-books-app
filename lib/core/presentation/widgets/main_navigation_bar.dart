@@ -32,9 +32,9 @@ class MainNavigationBar extends StatelessWidget {
             label: 'Categories',
           ),
           NavigationDestination(
-            icon: Icon(Icons.shopping_cart, color: kPrimaryColor),
-            selectedIcon: Icon(Icons.shopping_cart, color: Colors.white),
-            label: 'Cart',
+            icon: Icon(Icons.favorite, color: kPrimaryColor),
+            selectedIcon: Icon(Icons.favorite, color: Colors.white),
+            label: 'Favorite',
           ),
           NavigationDestination(
             icon: Icon(Icons.person, color: kPrimaryColor),
@@ -49,7 +49,7 @@ class MainNavigationBar extends StatelessWidget {
   int getSelectedIndex(BuildContext context) {
     final String location = GoRouterState.of(context).uri.toString();
     if (location.startsWith(AppRouter.kCategoriesView)) return 1;
-    if (location.startsWith(AppRouter.kCartView)) return 2;
+    if (location.startsWith(AppRouter.kFavoriteView)) return 2;
     if (location.startsWith(AppRouter.kAccountView)) return 3;
     return 0;
   }
@@ -63,7 +63,7 @@ class MainNavigationBar extends StatelessWidget {
         context.go(AppRouter.kCategoriesView);
         break;
       case 2:
-        context.go(AppRouter.kCartView);
+        context.go(AppRouter.kFavoriteView);
         break;
       case 3:
         context.go(AppRouter.kAccountView);

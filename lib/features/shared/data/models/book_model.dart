@@ -7,7 +7,7 @@ class Book {
   final double discount;
   final List<String> genres;
   final String description;
-  final String category;
+  String category;
   final double rating;
   final String? downloadLinkPdf;
   final String? webReaderLink;
@@ -39,8 +39,8 @@ class Book {
               .toList() ??
           ['Unknown Author'],
       price:
-          json['saleInfo']?['retailPrice']?['amount'] != null
-              ? (json['saleInfo']['retailPrice']['amount'] as num).toDouble()
+          json['saleInfo']?['listPrice":']?['amount'] != null
+              ? (json['saleInfo']['listPrice']['amount'] as num).toDouble()
               : 0,
       discount: 0,
       genres:

@@ -2,7 +2,7 @@ import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/horizontal_book_list.dart';
 import 'package:bookly_app/features/home/presentation/view/widgets/section_title.dart';
-import 'package:bookly_app/features/home/presentation/view_model/cubit/free_books_cubit.dart';
+import 'package:bookly_app/features/home/presentation/view_model/free_books_cubit/free_books_cubit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

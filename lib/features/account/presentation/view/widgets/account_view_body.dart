@@ -1,9 +1,10 @@
+import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/core/routes.dart';
 import 'package:bookly_app/core/services/firebase_service.dart';
 import 'package:bookly_app/features/account/presentation/view/widgets/build_info_tile.dart';
-import 'package:bookly_app/features/account/presentation/view/widgets/edit_address_dialog.dart';
-import 'package:bookly_app/features/account/presentation/view/widgets/edit_log_out_buttons.dart';
+import 'package:bookly_app/features/account/presentation/view/widgets/logout_button.dart';
 import 'package:bookly_app/features/account/presentation/view/widgets/profile_avatar.dart';
+import 'package:bookly_app/features/shared/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,49 +16,129 @@ class AccountViewBody extends StatefulWidget {
 }
 
 class _AccountViewBodyState extends State<AccountViewBody> {
-  String address = 'No.23, James Street, New Town, North Province';
-  final TextEditingController addressController = TextEditingController();
+  final FirebaseService _firebaseService = FirebaseService();
+  UserModel? _userModel;
+  bool _isLoading = true;
 
-  void editAddress() {
-    addressController.text = address;
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+  }
 
-    showDialog(
-      context: context,
-      builder: (context) {
-        return EditAddressDialog(
-          controller: addressController,
-          onPressed: () {
-            setState(() {
-              address = addressController.text;
-            });
-            Navigator.pop(context);
-          },
-        );
-      },
-    );
+  Future<void> _fetchUserData() async {
+    final user = _firebaseService.auth.currentUser;
+    if (user != null) {
+      try {
+        UserModel? fetchedUser = await _firebaseService.getUserData(user.uid);
+        setState(() {
+          _userModel = fetchedUser;
+          _isLoading = false;
+        });
+      } catch (e) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          ProfileAvatar(),
-          const SizedBox(height: 20),
-          buildInfoTile('Name', 'John Doe'),
-          buildInfoTile('E-mail', 'johndoe123@mail.com'),
-          buildInfoTile('Password', '********'),
-          buildInfoTile('Address', address),
-          const SizedBox(height: 85),
-          EditLogoutButtons(
-            editOnPressed: editAddress,
-            logOutOnPressed: () {
-              FirebaseService().logout();
-              context.go(AppRouter.kSignInView);
-            },
+    if (_isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(color: kPrimaryColor),
+      );
+    }
+
+    return Column(
+      children: [
+        ProfileAvatar(),
+        const SizedBox(height: 20),
+        buildInfoTile('Name', _userModel?.username ?? "N/A"),
+        buildInfoTile('E-mail', _userModel?.email ?? "N/A"),
+        buildInfoTile('Password', '********'),
+        Spacer(),
+        LogoutButton(logOutOnPressed: () => _showCustomLogoutDialog(context)),
+      ],
+    );
+  }
+
+  void _showCustomLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
-        ],
-      ),
+          backgroundColor: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.warning_rounded, size: 50, color: Colors.black),
+                const SizedBox(height: 15),
+                Text(
+                  "Log Out",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  "Are you sure you want to log out?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.grey[300],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: Text("Cancel"),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () {
+                          FirebaseService().logout();
+                          context.go(AppRouter.kSignInView);
+                        },
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: Text("Log Out"),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

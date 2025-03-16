@@ -1,15 +1,10 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:flutter/material.dart';
 
-class EditLogoutButton extends StatelessWidget {
-  const EditLogoutButton({
-    super.key,
-    required this.logOutOnPressed,
-    required this.buttonText,
-  });
+class LogoutButton extends StatelessWidget {
+  const LogoutButton({super.key, required this.logOutOnPressed});
 
   final void Function()? logOutOnPressed;
-  final String buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +15,13 @@ class EditLogoutButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           side: BorderSide(color: kPrimaryColor, width: 1.5),
         ),
-        backgroundColor: buttonText == 'Log out' ? Colors.white : kPrimaryColor,
+        backgroundColor: kPrimaryColor,
       ),
       onPressed: logOutOnPressed,
       child: Text(
-        buttonText,
+        'Log out',
         style: TextStyle(
-          color: buttonText == 'Log out' ? kPrimaryColor : Colors.white,
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),

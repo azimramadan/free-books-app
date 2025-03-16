@@ -14,6 +14,7 @@ class BookDetailView extends StatelessWidget {
         screenWidth: screenWidth,
         bookCategory:
             book.category == 'Book' ? 'Unknown Category' : book.category,
+        bookId: book.id,
       ),
       body: BookDetailViewBody(book: book),
     );

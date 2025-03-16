@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FilterButtonsRow extends StatefulWidget {
-  const FilterButtonsRow({super.key});
-
+  const FilterButtonsRow({super.key, required this.onFilterSelected});
+  final Function(String) onFilterSelected;
   @override
   State<FilterButtonsRow> createState() => _FilterButtonsRowState();
 }
@@ -25,6 +25,7 @@ class _FilterButtonsRowState extends State<FilterButtonsRow> {
                       setState(() {
                         selectedFilter = filter;
                       });
+                      widget.onFilterSelected(filter);
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
