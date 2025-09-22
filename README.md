@@ -33,21 +33,17 @@ A Flutter application for browsing and reading free books using the **Google Boo
   <img src="screenshots/loading_indicator.jpg" width="45%" />
 </p>
 
----
 
 <p align="center">
   <img src="screenshots/home_view.jpg" width="45%" />
   <img src="screenshots/category_view.jpg" width="45%" />
 </p>
 
-<p align="center">
-  <img src="screenshots/screenshot_3.jpg" width="45%" />
-  <img src="screenshots/screenshot_4.jpg" width="45%" />
-</p>
+
 
 ## 🎬 Demo
 
-> 🔗 check the demo post on [LinkedIn]([https://www.linkedin.com/posts/azimramadan_flutter-stripe-paypal-activity-7344755505623396352-AoTP?utm_source=share&utm_medium=member_android&rcm=ACoAAEnUMDsBHOQmpv6_GP-fBGNNSeeDyOxGA6A](https://www.linkedin.com/posts/azimramadan_flutter-mobileapp-opensource-activity-7308032308412932096-n-O_?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEnUMDsBHOQmpv6_GP-fBGNNSeeDyOxGA6A&utm_campaign=copy_link))
+> 🔗 check the demo post on [LinkedIn](https://www.linkedin.com/posts/azimramadan_flutter-mobileapp-opensource-activity-7308032308412932096-n-O_?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEnUMDsBHOQmpv6_GP-fBGNNSeeDyOxGA6A&utm_campaign=copy_link )
 ---
 
 ## 🚀 Getting Started
