@@ -33,7 +33,7 @@ A Flutter application for browsing and reading free books using the **Google Boo
   <img src="screenshots/loading_indicator.jpg" width="45%" />
 </p>
 
-
+---
 <p align="center">
   <img src="screenshots/home_view.jpg" width="45%" />
   <img src="screenshots/category_view.jpg" width="45%" />
